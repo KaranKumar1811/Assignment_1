@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
- var i=10
+
     
     @IBOutlet weak var space: UIView!
     @IBOutlet weak var imgView: UIImageView!
@@ -67,8 +67,8 @@ class ViewController: UIViewController {
                                             if self.imgView.frame.origin.y == self.space.bounds.minY && self.imgView.frame.origin.x == self.space.bounds.width - self.imgView.bounds.width
                                                       {
                                                                     self.imgView.frame.origin.x -= self.space.bounds.width - self.imgView.bounds.width
-                                                        print(self.space.bounds.minY)
-                                                        print(self.space.bounds.minX)
+//                                                        print(self.space.bounds.minY)
+//                                                        print(self.space.bounds.minX)
                                                                 }
                                         },completion: {(true) in
                                             self.move()
