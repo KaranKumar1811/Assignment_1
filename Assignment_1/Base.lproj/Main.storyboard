@@ -15,16 +15,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bb.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="a3p-IT-85r">
-                                <rect key="frame" x="13" y="52" width="38" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZi-32-9BS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bb.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="a3p-IT-85r">
+                                        <rect key="frame" x="178" y="390" width="38" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pZi-32-9BS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5Wv-5z-WDq"/>
+                            <constraint firstItem="pZi-32-9BS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="72t-G8-9sU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pZi-32-9BS" secondAttribute="bottom" id="Jc1-9d-LHh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pZi-32-9BS" secondAttribute="trailing" id="aNb-9G-ucU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="imgView" destination="a3p-IT-85r" id="uZa-tY-5R8"/>
+                        <outlet property="space" destination="pZi-32-9BS" id="jhP-uC-pve"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
