@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
- 
+ var i=10
     
     @IBOutlet weak var space: UIView!
     @IBOutlet weak var imgView: UIImageView!
@@ -19,54 +19,65 @@ class ViewController: UIViewController {
         self.imgView.frame.origin.y = self.space.bounds.minY
         self.imgView.frame.origin.x = self.space.bounds.minX
         
-           
-        UIView.animate(withDuration: 0.1, animations: {
-           
-            if self.imgView.frame.origin.y == self.space.bounds.minY && self.imgView.frame.origin.x == self.space.bounds.minX
-            {
-//            print(self.space.bounds.minX)
-//            print(self.space.bounds.minY)
-            self.imgView.frame.origin.y += self.space.bounds.height - self.imgView.bounds.height
-                print(self.space.bounds.height - self.imgView.bounds.height)
-                print(self.imgView.frame.origin.y)
-                print("\n")
-                print( self.imgView.frame.origin.x)
-                
-            }
-          
+        move()
         
-        
-        },completion:{ (true) in
-            UIView.animate(withDuration: 0.1, animations: {
-                if self.imgView.frame.origin.y == self.space.bounds.height - self.imgView.bounds.height && self.imgView.frame.origin.x == self.space.bounds.minX
-                          {
-                                        self.imgView.frame.origin.x += self.space.bounds.width - self.imgView.bounds.width
-                                    }
-            },completion: {
-                (true) in
-                UIView.animate(withDuration: 0.1, animations: {
-                    if self.imgView.frame.origin.y == self.space.bounds.height - self.imgView.bounds.height && self.imgView.frame.origin.x == self.space.bounds.width - self.imgView.bounds.width
-                              {
-                                self.imgView.frame.origin.y -= self.space.bounds.height - self.imgView.bounds.height
-                                        }
-                },completion:{
-                    (true) in
-                    UIView.animate(withDuration: 0.1, animations: {
-                        if self.imgView.frame.origin.y == self.space.bounds.minY && self.imgView.frame.origin.x == self.space.bounds.width - self.imgView.bounds.width
-                                  {
-                                                self.imgView.frame.origin.x -= self.space.bounds.width - self.imgView.bounds.width
-                                            }
-                    },completion: nil)
-                })
-                
-            })
-        })
+       
       
         
         
       
         
         
+    }
+    
+    func move() -> Void {
+       
+                     UIView.animate(withDuration: 2, animations: {
+                               
+                                if self.imgView.frame.origin.y == self.space.bounds.minY && self.imgView.frame.origin.x == self.space.bounds.minX
+                                {
+                    //            print(self.space.bounds.minX)
+                    //            print(self.space.bounds.minY)
+                                self.imgView.frame.origin.y += self.space.bounds.height - self.imgView.bounds.height
+        //                            print(self.space.bounds.height - self.imgView.bounds.height)
+        //                            print(self.imgView.frame.origin.y)
+        //                            print("\n")
+        //                            print( self.imgView.frame.origin.x)
+                                    
+                                }
+                              
+                            
+                            
+                            },completion:{ (true) in
+                                UIView.animate(withDuration: 2, animations: {
+                                    if self.imgView.frame.origin.y == self.space.bounds.height - self.imgView.bounds.height && self.imgView.frame.origin.x == self.space.bounds.minX
+                                              {
+                                                            self.imgView.frame.origin.x += self.space.bounds.width - self.imgView.bounds.width
+                                                        }
+                                },completion: {
+                                    (true) in
+                                    UIView.animate(withDuration: 2, animations: {
+                                        if self.imgView.frame.origin.y == self.space.bounds.height - self.imgView.bounds.height && self.imgView.frame.origin.x == self.space.bounds.width - self.imgView.bounds.width
+                                                  {
+                                                    self.imgView.frame.origin.y -= self.space.bounds.height - self.imgView.bounds.height
+                                                            }
+                                    },completion:{
+                                        (true) in
+                                        UIView.animate(withDuration: 2, animations: {
+                                            if self.imgView.frame.origin.y == self.space.bounds.minY && self.imgView.frame.origin.x == self.space.bounds.width - self.imgView.bounds.width
+                                                      {
+                                                                    self.imgView.frame.origin.x -= self.space.bounds.width - self.imgView.bounds.width
+                                                        print(self.space.bounds.minY)
+                                                        print(self.space.bounds.minX)
+                                                                }
+                                        },completion: {(true) in
+                                            self.move()
+                                        })
+                                    })
+                                    
+                                })
+                            })
+                
     }
 
 
