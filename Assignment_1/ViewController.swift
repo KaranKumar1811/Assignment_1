@@ -15,18 +15,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var imgView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        var flag = 1
+        
         self.imgView.frame.origin.y = self.space.bounds.minY
         self.imgView.frame.origin.x = self.space.bounds.minX
-        if flag == 1{
-            print(flag)
-        UIView.animate(withDuration: 5, animations: {
-            let aa = self.space.bounds.height - self.imgView.bounds.height
+        
+           
+        UIView.animate(withDuration: 0.1, animations: {
+           
             if self.imgView.frame.origin.y == self.space.bounds.minY && self.imgView.frame.origin.x == self.space.bounds.minX
             {
 //            print(self.space.bounds.minX)
 //            print(self.space.bounds.minY)
-            self.imgView.frame.origin.y += aa
+            self.imgView.frame.origin.y += self.space.bounds.height - self.imgView.bounds.height
                 print(self.space.bounds.height - self.imgView.bounds.height)
                 print(self.imgView.frame.origin.y)
                 print("\n")
@@ -37,15 +37,32 @@ class ViewController: UIViewController {
         
         
         },completion:{ (true) in
-            UIView.animate(withDuration: 5, animations: {
+            UIView.animate(withDuration: 0.1, animations: {
                 if self.imgView.frame.origin.y == self.space.bounds.height - self.imgView.bounds.height && self.imgView.frame.origin.x == self.space.bounds.minX
                           {
-                                        self.imgView.frame.origin.x += 200
+                                        self.imgView.frame.origin.x += self.space.bounds.width - self.imgView.bounds.width
                                     }
-            },completion: nil)
+            },completion: {
+                (true) in
+                UIView.animate(withDuration: 0.1, animations: {
+                    if self.imgView.frame.origin.y == self.space.bounds.height - self.imgView.bounds.height && self.imgView.frame.origin.x == self.space.bounds.width - self.imgView.bounds.width
+                              {
+                                self.imgView.frame.origin.y -= self.space.bounds.height - self.imgView.bounds.height
+                                        }
+                },completion:{
+                    (true) in
+                    UIView.animate(withDuration: 0.1, animations: {
+                        if self.imgView.frame.origin.y == self.space.bounds.minY && self.imgView.frame.origin.x == self.space.bounds.width - self.imgView.bounds.width
+                                  {
+                                                self.imgView.frame.origin.x -= self.space.bounds.width - self.imgView.bounds.width
+                                            }
+                    },completion: nil)
+                })
+                
+            })
         })
       
-        }
+        
         
       
         
